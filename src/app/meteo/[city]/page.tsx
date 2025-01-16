@@ -10,9 +10,11 @@ export default async function City({
 	params,
 }: { params: Promise<{ city: string }> }) {
 	const { city } = await params;
+	// on recupere la clé depuis le fichier env.local qui n'est pas commité comme ça ma clé ne traine pas sur github
+	const apiKeyFromEnvFile = process.env.KEY_API;
 
 	const response = await fetch(
-		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=47840f4f526d9cc69b4b575c52495860&units=metric&lang=fr`,
+		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyFromEnvFile}&units=metric&lang=fr`,
 	);
 	const data = (await response.json()) as WeatherResponse;
 	console.log(data.main.temp);
