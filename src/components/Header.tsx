@@ -15,7 +15,7 @@ export default function Header() {
 				</ul>
 			</nav>
 			<Title level={1}>
-				Meteo <span>Widget</span>
+				Meteo <span>Widget</span> !!!
 			</Title>
 		</header>
 	);
